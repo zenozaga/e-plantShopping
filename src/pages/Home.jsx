@@ -43,7 +43,7 @@ export default function HomePage({ plants, handleGoToPlants } = {}) {
                 )}
                 onClick={handleGoToPlants}
               >
-                <span className="text-lg font-semibold">Get Started</span>
+                <span className="text-lg font-semibold">Go to Plants Collection</span>
                 <Icon
                   icon={icons.arrowRight}
                   className="inline-block ml-2 text-2xl"
