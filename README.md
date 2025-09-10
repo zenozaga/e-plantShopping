@@ -1,7 +1,6 @@
 ## Where are slices
 
-CartSlice.jsx
-`store/CartSlice.jsx`
+View [CartSlice.jsx](./src/store/CartSlice.jsx)
 
 ## Disclaimer
 
