@@ -64,6 +64,10 @@ jobs:
         
       - name: Generate Static Site
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
+
+      - name: Replace /assets/ with ./assets/
+        run: |
+          sed -i 's|/assets/|./assets/|g' ./dist/index.html
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
