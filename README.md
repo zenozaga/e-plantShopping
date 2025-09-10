@@ -1,7 +1,10 @@
-## Where are slices
 
-Demo [GreenSpot](https://zenozaga.github.io/e-plantShopping/)
+## Demo 
+View Github page online demo [here](https://zenozaga.github.io/e-plantShopping/)
+
 View [CartSlice.jsx](./src/store/CartSlice.jsx)
+
+---
 
 ## Disclaimer
 
