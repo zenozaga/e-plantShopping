@@ -11,11 +11,16 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
+    "postcss": "^8.5.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^9.1.1"
+    "react-redux": "^9.1.1",
+    "shoppingcart": "file:",
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
+    "@iconify/react": "^6.0.1",
+    "@tailwindcss/vite": "^4.1.13",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",

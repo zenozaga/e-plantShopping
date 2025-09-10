@@ -1,45 +1,57 @@
 
-import React, { useState } from 'react';
-import ProductList from './ProductList';
+import { useDispatch, useSelector } from 'react-redux';
+
+
+import Header from './components/Header';
+import cn from './common/utils/cn';
+import CartContainer from './components/CartContainer';
+import { plants } from './dataset/plants';
+
+import { goToHome, goToPlants } from "./store/NavSlice"
+
 import './App.css';
-import AboutUs from './AboutUs';
+import HomePage from './pages/Home';
+import PlantsPage from './pages/PlantsPage';
+
 
 function App() {
-  
-  const [showProductList, setShowProductList] = useState(false);
 
-  const handleGetStartedClick = () => {
-    setShowProductList(true);
+  const dispatch = useDispatch();
+  const { isPlants } = useSelector((state) => state.nav);
+  const isCartOpen = useSelector((state) => state.cart.isOpen);
+
+
+  const handleGoHome = () => {
+    dispatch(goToHome());
   };
 
-  const handleHomeClick = () => {
-    setShowProductList(false);
+  const handleGoToPlants = () => {
+    dispatch(goToPlants());
   };
+
 
   return (
-    <div className="app-container">
-      <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
-        <div className="background-image"></div>
-        <div className="content">
-         <div className="landing_content">
-         <h1>Welcome To Paradise Nursery</h1>
-          <div className="divider"></div>
-          <p>Where Green Meets Serenity</p>
-         
-          <button className="get-started-button" onClick={handleGetStartedClick}>
-            Get Started
-          </button>
-         </div>
-          <div className="aboutus_container">
-          <AboutUs/>
-          </div>
-          </div>
+    <>
 
+      <div className={cn(
+        "app-container w-full min-h-screen flex flex-col  justify-start items-start",
+        isCartOpen ? "overflow-hidden" : "overflow-auto",
+      )}>
+        <Header />
+
+        <main className={cn(
+          "w-full min-h-full flex-1",
+          "flex flex-col",
+        )}>
+
+          {!isPlants && <HomePage plants={plants} handleGoToPlants={handleGoToPlants} />}
+          {isPlants && <PlantsPage show={isPlants} plants={plants} goToHome={handleGoHome} />}
+
+        </main>
       </div>
-      <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList onHomeClick={handleHomeClick}/>
-      </div>
-    </div>
+      <CartContainer />
+
+    </>
   );
 }
 

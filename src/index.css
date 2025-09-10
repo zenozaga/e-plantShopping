@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+button:[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.dmsans {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+#root {
+  background-color: #ffffff;
+}
+
+.app-background-effect {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: url("images/backgrounds/background-1.png"),
+    url("images/backgrounds/background-2.webp");
+  background-size: 70%, 20%;
+  background-repeat: no-repeat;
+  background-position: 170% top, -5% 85%;
+}
+
+.app-container {
+  z-index: 10;
+  position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .app-background-effect {
+    background-size: 150%, 30%;
+    background-position: 200% 5%, -20% 85%;
+  }
+}
+
+/************************
+  * Animations
+ ***********************/
+@layer utilities {
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  /* Clases base */
+  .animate-fadeInUp {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fadeInDown {
+    opacity: 0;
+    animation: fadeInDown 0.6s ease-out forwards;
+  }
+  .animate-fadeIn {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  /* 🔽 Variantes con delay */
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .delay-500 {
+    animation-delay: 0.5s;
+  }
+  .delay-1000 {
+    animation-delay: 1s;
+  }
+}
